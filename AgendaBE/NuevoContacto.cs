@@ -10,7 +10,6 @@
                             string aTelefono,  //esta bien asi??. si pongo int me da un error.
                             string aMail)
 
-        //como dejar el Text vacio despues de cargar un dato????
         {
             Nombre = aNombre;
             Telefono = aTelefono; // despues de probar todos los int es el unico que me deja "agregar" el telefono correctamente
@@ -23,11 +22,6 @@
                 ("inserte numero de telefono");  //mostrar????
             }
 
-            else
-            {
-                ("Nuevo Contacto agregado"); //mostrar???
-            }
-            */
         }
 
         public string Listar()
