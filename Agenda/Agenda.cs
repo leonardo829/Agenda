@@ -1,12 +1,5 @@
 ﻿using AgendaBE;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Agenda
@@ -24,11 +17,39 @@ namespace Agenda
         {
             NuevoContacto Contacto = new NuevoContacto();
 
-            Contacto.Agregar(txtNombre.Text = " ",
-                          txtTelefono.Text = " ",
-                          txtMail.Text = " ");
 
-            contactos.Agregar(Contacto);
+
+            decimal verificacion;
+
+
+
+            if (txtTelefono.Text == "")
+            {
+
+                errorProvider1.SetError(txtTelefono, "error ingrese un valor");
+                txtTelefono.Focus();
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(txtTelefono, "");
+                if (!Decimal.TryParse(txtTelefono.Text, out verificacion))
+                {
+                    errorProvider1.SetError(txtTelefono, "ingrese numeros");
+                    return;
+                }
+                else
+                {
+                    errorProvider1.SetError(txtTelefono, "");
+                    Contacto.Agregar(txtNombre.Text,
+                    txtTelefono.Text,
+                    txtMail.Text);
+                    contactos.Agregar(Contacto);
+
+                }
+            }
+
+
 
             MostrarContactos();
         }
@@ -49,10 +70,10 @@ namespace Agenda
 
         private void btnNuevoContacto_Click(object sender, EventArgs e)
         {
-            lblContactos.Visible=false;
-            btnNuevoContacto.Visible=false;
-            btnContactos.Visible=true;
-            lblAgenda.Visible=true;
+            lblContactos.Visible = false;
+            btnNuevoContacto.Visible = false;
+            btnContactos.Visible = true;
+            lblAgenda.Visible = true;
         }
     }
 }

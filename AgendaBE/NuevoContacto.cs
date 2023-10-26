@@ -1,26 +1,22 @@
-﻿namespace AgendaBE
+﻿using System;
+namespace AgendaBE
 {
     public class NuevoContacto
     {
         public string Nombre { get; set; }
-        public string Telefono { get; set; }
+        public int Telefono { get; set; }
         public string Mail { get; set; }
 
         public void Agregar(string aNombre,
-                            string aTelefono,  //esta bien asi??. si pongo int me da un error.
+                            string aTelefono,
                             string aMail)
 
         {
             Nombre = aNombre;
-            Telefono = aTelefono; // despues de probar todos los int es el unico que me deja "agregar" el telefono correctamente
+            Telefono = Convert.ToInt32(aTelefono);
             Mail = aMail;
 
-            //sin el if el programa si anda :)
-            /*
-            if (aTelefono.IsNullOrEmpty(txtTelefono.Text))
-            {
-                ("inserte numero de telefono");  //mostrar????
-            }
+
 
         }
 
