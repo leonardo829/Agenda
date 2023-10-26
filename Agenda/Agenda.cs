@@ -46,6 +46,7 @@ namespace Agenda
                     txtMail.Text);
                     contactos.Agregar(Contacto);
 
+
                 }
             }
 
